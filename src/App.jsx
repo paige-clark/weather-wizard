@@ -9,7 +9,7 @@ function App() {
   const [count, setCount] = useState(0);
   const [currentDate, setCurrentDate] = useState(saveData);
 
-  function progressTime(timeToChange) {
+  function timeForward(timeToChange) {
     if (timeToChange === "morning") {
       return {...currentDate, timeOfDay: "afternoon"};
     } else if (timeToChange === "afternoon") {
@@ -21,6 +21,18 @@ function App() {
       return {...currentDate, timeOfDay: "morning"};
     }
   }
+  function timeBackward(timeToChange) {
+    if (timeToChange === "morning") {
+       // will also need to decrement the date here
+      return {...currentDate, timeOfDay: "overnight"};
+    } else if (timeToChange === "afternoon") {
+      return {...currentDate, timeOfDay: "morning"};
+    } else if (timeToChange === "evening") {
+      return {...currentDate, timeOfDay: "afternoon"};
+    } else {
+      return {...currentDate, timeOfDay: "evening"};
+    }
+  }
 
   return (
     <div className="App">
@@ -30,12 +42,16 @@ function App() {
           <Lottie className="logo" animationData={slime} loop={true} />
         </div>
         <ForecasterBox date={currentDate} />
-        <button onClick={() => setCurrentDate(progressTime(currentDate.timeOfDay))}>
-          progress time, currently {currentDate.timeOfDay}
+        <button onClick={() => setCurrentDate(timeBackward(currentDate.timeOfDay))}>
+          prev
         </button>
-        <button onClick={() => setCount((count) => count + 1)}>
+        currently {currentDate.timeOfDay}
+        <button onClick={() => setCurrentDate(timeForward(currentDate.timeOfDay))}>
+          next
+        </button>
+        {/* <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
-        </button>
+        </button> */}
       </div>
     </div>
   );
