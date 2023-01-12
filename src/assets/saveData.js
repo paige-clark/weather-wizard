@@ -31,11 +31,11 @@ export const calendarConfigs = {
  * Each season will have to have a min temp and max temp, general
  * weather pattern info? Like the kinds of things that can happen
  * in that season (snow, ice pellets, rain, sunshine)
- * 
+ *
  * While there are so many patterns that can happen each month,
  * I'm just going to start with clear, clear with clouds, overcast,
  * and precipitating for now.
- * 
+ *
  * Other weather patterns include stuff like icy rain, heavy rain,
  * thunderstorms, high wind events, foggy, there are so many but
  * they would all require additional scoring systems so better to
@@ -94,15 +94,17 @@ export const seasons = {
  */
 export const days = [
   {
-    dayNum: 1, //need this for the weird react key stuff
+    dayNum: 0, //need this for the weird react key stuff
     morning: { precipitationScore: 0, temperature: -11 }, //clear
     afternoon: { precipitationScore: 25, temperature: -6 }, //clear with clouds
     evening: { precipitationScore: 50, temperature: -15 }, //overcast
-    overnight: { precipitationScore: 7, temperature: -20 }, //precipitation
+    overnight: { precipitationScore: 75, temperature: -20 }, //precipitation
   },
 ];
 
 export const saveData = {
   currentDay: days[days.length - 1].dayNum,
+  currentDayOfWeek: calendarConfigs.daysOfWeek[0],
   currentMonth: calendarConfigs.months[0],
+  timeOfDay: "morning",
 };
