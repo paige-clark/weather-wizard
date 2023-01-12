@@ -1,16 +1,11 @@
 import { useState } from "react";
 import Lottie from "lottie-react";
 import "./App.css";
-import { saveData } from "./assets/saveData";
+import { saveData, calendarConfigs, seasons } from "./assets/saveData";
 import slime from "./assets/slime-test.json";
 
 function App() {
   const [count, setCount] = useState(0);
-  // const options = {
-  //   animationData: slime,
-  //   loop: true,
-  // };
-  // const { view } = useLottie(options);
 
   return (
     <div className="App">
