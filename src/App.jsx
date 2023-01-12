@@ -19,7 +19,7 @@ function App() {
         <ForecasterBox date={currentDate} />
         <button
           onClick={() =>
-            setCurrentDate((currentDate) => timeBackward(currentDate.timeOfDay))
+            setCurrentDate((currentDate) => timeBackward(currentDate.timeOfDay, currentDate.currentDay))
           }
         >
           prev
@@ -27,7 +27,7 @@ function App() {
         currently {currentDate.timeOfDay}
         <button
           onClick={() =>
-            setCurrentDate((currentDate) => timeForward(currentDate.timeOfDay))
+            setCurrentDate((currentDate) => timeForward(currentDate.timeOfDay, currentDate.currentDay))
           }
         >
           next
