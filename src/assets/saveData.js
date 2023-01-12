@@ -1,3 +1,5 @@
+// don't edit this file yourself the app might explode
+
 export const calendarConfigs = {
   daysOfWeek: [
     "Firstday",
@@ -26,6 +28,12 @@ export const calendarConfigs = {
     { monthName: "Nightal", monthDays: 30, season: "Winter" },
   ],
 };
+
+// spits out the total number of days in the year, will come in handy
+// when the user can add months
+export const daysInYear = calendarConfigs.months.reduce((acc, obj) => {
+  return acc + obj.monthDays;
+}, 0);
 
 /**
  * Each season will have to have a min temp and max temp, general
