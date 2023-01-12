@@ -16,18 +16,25 @@ function App() {
         <div>
           <Lottie className="logo" animationData={slime} loop={true} />
         </div>
+        {/* box that displays temp and weather graphic */}
         <ForecasterBox date={currentDate} />
+        {/* increment the time of day */}
         <button
           onClick={() =>
-            setCurrentDate((currentDate) => timeBackward(currentDate.timeOfDay, currentDate.currentDay))
+            setCurrentDate((currentDate) =>
+              timeBackward(currentDate.timeOfDay, currentDate.currentDay)
+            )
           }
         >
           prev
         </button>
         currently {currentDate.timeOfDay}
+        {/* decrement the time of day */}
         <button
           onClick={() =>
-            setCurrentDate((currentDate) => timeForward(currentDate.timeOfDay, currentDate.currentDay))
+            setCurrentDate((currentDate) =>
+              timeForward(currentDate.timeOfDay, currentDate.currentDay)
+            )
           }
         >
           next
