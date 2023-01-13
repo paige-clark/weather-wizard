@@ -58,7 +58,7 @@ export const seasons = {
     minNightTemp: -45, // currently not using this
     averageTemp: -10,
     precipitationLikelihood: "average",
-    typeOfPrecipitation: "snow"
+    precipitationType: "snow"
   },
   spring: {
     maxDayTemp: 18,

@@ -7,23 +7,23 @@ import {
 } from "../assets/saveData";
 
 function rollDice(sides, wantNegativeRange) {
+  // if wantNegativeRange range is true then -sides to sides will be returned
   if (wantNegativeRange) {
     return (
       Math.ceil(Math.random() * sides) * (Math.round(Math.random()) ? 1 : -1)
     );
   } else {
-    return Math.floor(Math.random() * sides)
+    return Math.floor(Math.random() * sides);
   }
 }
 
 // generate the temperatures for the day
 function tempGenerator() {
   let counter;
-  let average =
+  let seasonAverage =
     seasons[calendarConfigs.months[saveData.currentMonthNum].season]
       .averageTemp;
-  console.log("SEASON AVERAGE", average);
-  console.log("MODIFIER:", rollDice(6, true));
+  console.log("SEASON AVERAGE", seasonAverage);
   /**
    * if there aren't three days in the past just use the current
    * length. This is supposed to be for if there are no days yet
@@ -48,17 +48,33 @@ function tempGenerator() {
   // }
 
   // Just return a generated day to start
+  const dayAverage = seasonAverage + rollDice(4, true);
+  console.log("DAY AVERAGE", dayAverage);
+  const newMorningTemp = dayAverage + rollDice(2, true) - rollDice(4, false); // morning should be colder but not as cold as overnight
+  const newAfternoonTemp = dayAverage + rollDice(1, true) + rollDice(2, false); // should be warmest
+  const newEveningTemp = dayAverage + rollDice(1, true) - rollDice(2, false);
+  const newOvernightTemp = dayAverage + rollDice(2, true) - rollDice(7, false); // coldest
+
+  const newTemps = {
+    morning: newMorningTemp,
+    afternoon: newAfternoonTemp,
+    evening: newEveningTemp,
+    overnight: newOvernightTemp,
+  }
+
+  return newTemps;
 }
 
 // generate a new day if one doesn't exist
 export function dayGenerator(newDayNum) {
-  tempGenerator();
+  const generatedTemps = tempGenerator();
+  console.log(generatedTemps);
   const newDay = {
     dayNum: newDayNum,
-    morning: { precipitationScore: 100, temperature: -11 },
-    afternoon: { precipitationScore: 20, temperature: -6 },
-    evening: { precipitationScore: 10, temperature: -15 },
-    overnight: { precipitationScore: 4, temperature: -20 },
+    morning: { precipitationScore: 100, temperature: generatedTemps.morning },
+    afternoon: { precipitationScore: 20, temperature: generatedTemps.afternoon },
+    evening: { precipitationScore: 10, temperature: generatedTemps.evening },
+    overnight: { precipitationScore: 4, temperature: generatedTemps.overnight },
   };
   return days.push(newDay);
 }
