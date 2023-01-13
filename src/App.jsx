@@ -12,7 +12,6 @@ import {
 
 function App() {
   const [currentDate, setCurrentDate] = useState(saveData);
-  console.log(days);
 
   return (
     <div className="App">

@@ -14,18 +14,18 @@ export const calendarConfigs = {
     "TenthDay",
   ],
   months: [
-    { monthName: "Hammer", monthDays: 30, season: "Winter" },
-    { monthName: "Alturiak", monthDays: 30, season: "Winter" },
-    { monthName: "Ches", monthDays: 30, season: "Winter" },
-    { monthName: "Tarsakh", monthDays: 30, season: "Winter" },
-    { monthName: "Mirtul", monthDays: 30, season: "Spring" },
-    { monthName: "Kythorn", monthDays: 30, season: "Spring" },
-    { monthName: "Flamerule", monthDays: 30, season: "Summer" },
-    { monthName: "Eleasias", monthDays: 30, season: "Summer" },
-    { monthName: "Eleint", monthDays: 30, season: "Summer" },
-    { monthName: "Marpenoth", monthDays: 30, season: "Fall" },
-    { monthName: "Uktar", monthDays: 30, season: "Fall" },
-    { monthName: "Nightal", monthDays: 30, season: "Winter" },
+    { monthName: "Hammer", monthDays: 30, season: "winter" },
+    { monthName: "Alturiak", monthDays: 30, season: "winter" },
+    { monthName: "Ches", monthDays: 30, season: "winter" },
+    { monthName: "Tarsakh", monthDays: 30, season: "winter" },
+    { monthName: "Mirtul", monthDays: 30, season: "spring" },
+    { monthName: "Kythorn", monthDays: 30, season: "spring" },
+    { monthName: "Flamerule", monthDays: 30, season: "summer" },
+    { monthName: "Eleasias", monthDays: 30, season: "summer" },
+    { monthName: "Eleint", monthDays: 30, season: "summer" },
+    { monthName: "Marpenoth", monthDays: 30, season: "fall" },
+    { monthName: "Uktar", monthDays: 30, season: "fall" },
+    { monthName: "Nightal", monthDays: 30, season: "winter" },
   ],
 };
 
@@ -48,14 +48,17 @@ export const daysInYear = calendarConfigs.months.reduce((acc, obj) => {
  * thunderstorms, high wind events, foggy, there are so many but
  * they would all require additional scoring systems so better to
  * get something working for now.
+ * 
  */
 export const seasons = {
   winter: {
-    maxDayTemp: 0,
-    minDayTemp: -30,
-    maxNightTemp: -5,
-    minNightTemp: -45,
+    maxDayTemp: 0, // currently not using this
+    minDayTemp: -30, // currently not using this
+    maxNightTemp: -5, // currently not using this
+    minNightTemp: -45, // currently not using this
+    averageTemp: -10,
     precipitationLikelihood: "average",
+    typeOfPrecipitation: "snow"
   },
   spring: {
     maxDayTemp: 18,
@@ -114,5 +117,7 @@ export const saveData = {
   currentDay: days[0].dayNum,
   currentDayOfWeek: calendarConfigs.daysOfWeek[0],
   currentMonth: calendarConfigs.months[0],
+  currentMonthNum: 0,
+  currentSeason: calendarConfigs.months[0].season,
   timeOfDay: "morning",
 };

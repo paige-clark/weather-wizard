@@ -3,9 +3,48 @@ import {
   daysInYear,
   days,
   calendarConfigs,
+  seasons
 } from "../assets/saveData";
 
+function dice(sides) {
+  
+}
+
+// generate the temperatures for the day
+function tempGenerator() {
+  let counter;
+  let average = seasons[calendarConfigs.months[saveData.currentMonthNum].season].averageTemp
+  console.log("SEASON AVERAGE", average);
+  /**
+   * if there aren't three days in the past just use the current
+   * length. This is supposed to be for if there are no days yet
+   * NOT for if they set the time to a future date.
+   *
+   * An idea for using this function for when they skip to a future
+   * date is to take in a boolean, but it might be better to just
+   * create a different function.
+   */
+
+  // revisit this code when you want trends
+  // if (days.length < 3) {
+  //   counter = days.length;
+  // } else {
+  //   // if I'm going to do trend modifiers, I'd do them here b/c data
+  //   counter = 3;
+  // }
+
+  // while (counter > 0) {
+
+  //   counter--;
+  // }
+
+  // Just return a generated day to start
+  
+}
+
+// generate a new day if one doesn't exist
 export function dayGenerator(newDayNum) {
+  tempGenerator();
   const newDay = {
     dayNum: newDayNum,
     morning: { precipitationScore: 100, temperature: -11 },
@@ -17,6 +56,7 @@ export function dayGenerator(newDayNum) {
 }
 
 /**
+ * Moves the time of day foreward
  * Yes we are mutating the save data this in inentional!
  */
 export function timeForward(timeToChange, incrementDate) {
@@ -44,6 +84,7 @@ export function timeForward(timeToChange, incrementDate) {
 }
 
 /**
+ * Moves the time of day backwards
  * Yes we are mutating the save data this in inentional!
  */
 export function timeBackward(timeToChange, incrementDate) {
