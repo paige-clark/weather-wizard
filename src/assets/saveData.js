@@ -107,9 +107,9 @@ export const days = [
   {
     dayNum: 0, //need this for the weird react key stuff
     morning: { precipitationScore: 0, temperature: -11 }, //clear
-    afternoon: { precipitationScore: 25, temperature: -6 }, //clear with clouds
-    evening: { precipitationScore: 50, temperature: -15 }, //overcast
-    overnight: { precipitationScore: 75, temperature: -20 }, //precipitation
+    afternoon: { precipitationScore: 0, temperature: -6 }, //clear with clouds
+    evening: { precipitationScore: 0, temperature: -15 }, //overcast
+    overnight: { precipitationScore: 0, temperature: -20 }, //precipitation
   },
 ];
 
@@ -120,4 +120,5 @@ export const saveData = {
   currentMonthNum: 0,
   currentSeason: calendarConfigs.months[0].season,
   timeOfDay: "morning",
+  precipitationScore: 50, // 0 - 100 should be random eventually
 };

@@ -66,19 +66,86 @@ function tempGenerator() {
   return newTemps;
 }
 
+// generate precipitation for the day
+function precipitationGenerator() {
+  /**
+   * It's going to be very important for weather to grow on itself when it comes
+   * to precipitation, looking at the history will be important.
+   *
+   * To start I could generate an intial score (ideally day one will be random
+   * in the end), then roll 1d10 or something, I feel like this should change up to
+   * have more variance...
+   * But then esstially split that number in to 4 then gradiate the weather according
+   * to those 4 numbers.
+   *
+   * Down the road maybe wind could make this change faster?
+   *
+   * Testing this out with just the random numbers, it seems cool, but I think
+   * for interest I need to analyze patterns and push it more in one direction
+   * if the past 3 days have been too similar
+   */
+
+  // store the save data
+  const oldPrecip = saveData.precipitationScore;
+
+  // adjust this number to make weather changing more erratic
+  let precipitationScoreModifier = rollDice(50, true);
+  let difference = precipitationScoreModifier;
+
+  if (oldPrecip + precipitationScoreModifier < 0) {
+    // adjust so that the difference doesn't go under
+    difference += oldPrecip + precipitationScoreModifier;
+
+    // change the result and store it in the save
+    precipitationScoreModifier = 0;
+    saveData.precipitationScore = precipitationScoreModifier;
+  } else if (oldPrecip + precipitationScoreModifier > 100) {
+    // adjust so that the difference doesn't go over
+    difference -= oldPrecip + precipitationScoreModifier - 100;
+
+    // change the result and store it in the save
+    precipitationScoreModifier = 100;
+    saveData.precipitationScore = precipitationScoreModifier;
+  } else {
+    // everything is fine, store the new score in the save
+    saveData.precipitationScore = oldPrecip + precipitationScoreModifier;
+  }
+  // the amount to change the weather per section in the day
+  let incrementNumber = Math.floor(difference / 4);
+
+  const newPrecip = {
+    morning: oldPrecip + incrementNumber,
+    afternoon: oldPrecip + incrementNumber * 2,
+    evening: oldPrecip + incrementNumber * 3,
+    overnight: oldPrecip + incrementNumber * 4,
+  };
+
+  return newPrecip;
+}
+
 // generate a new day if one doesn't exist
 export function dayGenerator(newDayNum) {
   const generatedTemps = tempGenerator();
-  console.log(generatedTemps);
+  const generatedPrecip = precipitationGenerator();
+
   const newDay = {
     dayNum: newDayNum,
-    morning: { precipitationScore: 100, temperature: generatedTemps.morning },
+    morning: {
+      precipitationScore: generatedPrecip.morning,
+      temperature: generatedTemps.morning,
+    },
     afternoon: {
-      precipitationScore: 20,
+      precipitationScore: generatedPrecip.afternoon,
       temperature: generatedTemps.afternoon,
     },
-    evening: { precipitationScore: 10, temperature: generatedTemps.evening },
-    overnight: { precipitationScore: 4, temperature: generatedTemps.overnight },
+    evening: {
+      precipitationScore: generatedPrecip.evening,
+      temperature: generatedTemps.evening,
+    },
+    overnight: {
+      precipitationScore: generatedPrecip.overnight,
+      temperature: generatedTemps.overnight,
+    },
   };
   return days.push(newDay);
 }
