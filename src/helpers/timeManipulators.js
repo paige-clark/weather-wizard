@@ -3,18 +3,27 @@ import {
   daysInYear,
   days,
   calendarConfigs,
-  seasons
+  seasons,
 } from "../assets/saveData";
 
-function dice(sides) {
-  
+function rollDice(sides, wantNegativeRange) {
+  if (wantNegativeRange) {
+    return (
+      Math.ceil(Math.random() * sides) * (Math.round(Math.random()) ? 1 : -1)
+    );
+  } else {
+    return Math.floor(Math.random() * sides)
+  }
 }
 
 // generate the temperatures for the day
 function tempGenerator() {
   let counter;
-  let average = seasons[calendarConfigs.months[saveData.currentMonthNum].season].averageTemp
+  let average =
+    seasons[calendarConfigs.months[saveData.currentMonthNum].season]
+      .averageTemp;
   console.log("SEASON AVERAGE", average);
+  console.log("MODIFIER:", rollDice(6, true));
   /**
    * if there aren't three days in the past just use the current
    * length. This is supposed to be for if there are no days yet
@@ -39,7 +48,6 @@ function tempGenerator() {
   // }
 
   // Just return a generated day to start
-  
 }
 
 // generate a new day if one doesn't exist
