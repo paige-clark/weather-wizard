@@ -89,7 +89,7 @@ function precipitationGenerator() {
   const oldPrecip = saveData.precipitationScore;
 
   // adjust this number to make weather changing more erratic
-  let precipitationScoreModifier = rollDice(50, true);
+  let precipitationScoreModifier = rollDice(75, true);
   let difference = precipitationScoreModifier;
 
   if (oldPrecip + precipitationScoreModifier < 0) {
@@ -114,10 +114,10 @@ function precipitationGenerator() {
   let incrementNumber = Math.floor(difference / 4);
 
   const newPrecip = {
-    morning: Math.max((oldPrecip + incrementNumber), 0),
-    afternoon: Math.max((oldPrecip + incrementNumber * 2), 0),
-    evening: Math.max((oldPrecip + incrementNumber * 3), 0),
-    overnight: Math.max((oldPrecip + incrementNumber * 4), 0),
+    morning: Math.max(oldPrecip + incrementNumber, 0),
+    afternoon: Math.max(oldPrecip + incrementNumber * 2, 0),
+    evening: Math.max(oldPrecip + incrementNumber * 3, 0),
+    overnight: Math.max(oldPrecip + incrementNumber * 4, 0),
   };
 
   return newPrecip;
@@ -127,7 +127,7 @@ function precipitationGenerator() {
 export function dayGenerator(newDayNum) {
   const generatedTemps = tempGenerator();
   const generatedPrecip = precipitationGenerator();
-  console.log(generatedPrecip)
+  console.log(generatedPrecip);
 
   const newDay = {
     dayNum: newDayNum,
@@ -169,7 +169,10 @@ export function timeForward(timeToChange, incrementDate) {
     // Checks to see if the date can be incremented and mutates save if so
     if (saveData.currentDay < daysInYear) {
       saveData.currentDay = incrementDate + 1;
-      saveData.currentDayOfWeek = calendarConfigs.daysOfWeek[incrementDate + 1];
+      saveData.currentDayOfWeek =
+        calendarConfigs.daysOfWeek[
+          (incrementDate + 1) % calendarConfigs.daysOfWeek.length
+        ];
       // dayGenerator(incrementDate + 1);
       saveData.timeOfDay = "morning";
       return {
