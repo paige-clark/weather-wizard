@@ -1,4 +1,4 @@
-import { days } from "../assets/saveData";
+import { days, saveData } from "../assets/saveData";
 
 // will need to take in to account stuff like time of day and season
 function artPicker(score) {
@@ -9,7 +9,11 @@ function artPicker(score) {
   } else if (score >= 50 && score <= 74) {
     return "☁️";
   } else if (score >= 75 && score <= 100) {
-    return "🌧️";
+    if (saveData.currentSeason === "winter") {
+      return "🌨️";
+    } else {
+      return "🌧️";
+    }
   }
 }
 
