@@ -23,7 +23,6 @@ function tempGenerator() {
   let seasonAverage =
     seasons[calendarConfigs.months[saveData.currentMonthNum].season]
       .averageTemp;
-  console.log("SEASON AVERAGE", seasonAverage);
   /**
    * if there aren't three days in the past just use the current
    * length. This is supposed to be for if there are no days yet
@@ -49,7 +48,6 @@ function tempGenerator() {
 
   // Just return a generated day to start
   const dayAverage = seasonAverage + rollDice(4, true);
-  console.log("DAY AVERAGE", dayAverage);
   // going to need unique values per season?
   const newMorningTemp = dayAverage + rollDice(2, true) - rollDice(4, false); // morning should be colder but not as cold as overnight
   const newAfternoonTemp = dayAverage + rollDice(1, true) + rollDice(2, false); // should be warmest
@@ -127,7 +125,6 @@ function precipitationGenerator() {
 export function dayGenerator(newDayNum) {
   const generatedTemps = tempGenerator();
   const generatedPrecip = precipitationGenerator();
-  console.log(generatedPrecip);
 
   const newDay = {
     dayNum: newDayNum,
