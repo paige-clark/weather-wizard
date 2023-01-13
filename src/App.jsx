@@ -4,10 +4,15 @@ import "./App.css";
 import { calendarConfigs, days, saveData, seasons } from "./assets/saveData";
 import slime from "./assets/slime-test.json";
 import ForecasterBox from "./components/ForeCasterBox";
-import { timeForward, timeBackward } from "./helpers/timeManipulators";
+import {
+  timeForward,
+  timeBackward,
+  dayGenerator,
+} from "./helpers/timeManipulators";
 
 function App() {
   const [currentDate, setCurrentDate] = useState(saveData);
+  console.log(days);
 
   return (
     <div className="App">
@@ -31,11 +36,18 @@ function App() {
         currently {currentDate.timeOfDay}
         {/* decrement the time of day */}
         <button
-          onClick={() =>
-            setCurrentDate((currentDate) =>
-              timeForward(currentDate.timeOfDay, currentDate.currentDay)
-            )
-          }
+          onClick={() => {
+            if (currentDate.timeOfDay === "overnight") {
+              dayGenerator(currentDate.currentDay + 1);
+              setCurrentDate((currentDate) =>
+                timeForward(currentDate.timeOfDay, currentDate.currentDay)
+              );
+            } else {
+              setCurrentDate((currentDate) =>
+                timeForward(currentDate.timeOfDay, currentDate.currentDay)
+              );
+            }
+          }}
         >
           next
         </button>

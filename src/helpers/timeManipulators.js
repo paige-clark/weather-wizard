@@ -1,4 +1,20 @@
-import { saveData, daysInYear, days, calendarConfigs } from "../assets/saveData";
+import {
+  saveData,
+  daysInYear,
+  days,
+  calendarConfigs,
+} from "../assets/saveData";
+
+export function dayGenerator(newDayNum) {
+  const newDay = {
+    dayNum: newDayNum,
+    morning: { precipitationScore: 100, temperature: -11 },
+    afternoon: { precipitationScore: 20, temperature: -6 },
+    evening: { precipitationScore: 10, temperature: -15 },
+    overnight: { precipitationScore: 4, temperature: -20 },
+  };
+  return days.push(newDay);
+}
 
 /**
  * Yes we are mutating the save data this in inentional!
@@ -16,19 +32,13 @@ export function timeForward(timeToChange, incrementDate) {
   } else if (timeToChange === "overnight") {
     // Checks to see if the date can be incremented and mutates save if so
     if (saveData.currentDay < daysInYear) {
-      if (incrementDate !== days.length - 1) {
-        saveData.currentDay = incrementDate + 1;
-        saveData.timeOfDay = "morning";
-        saveData.currentDayOfWeek = calendarConfigs.daysOfWeek[incrementDate + 1]
-        return {
-          ...saveData,
-        };
-      } else {
-        // CALL DAY GENERATOR HERE!!!
-        return { ...saveData };
-      }
-    } else {
-      return { ...saveData };
+      saveData.currentDay = incrementDate + 1;
+      saveData.currentDayOfWeek = calendarConfigs.daysOfWeek[incrementDate + 1];
+      // dayGenerator(incrementDate + 1);
+      saveData.timeOfDay = "morning";
+      return {
+        ...saveData,
+      };
     }
   }
 }
@@ -44,7 +54,7 @@ export function timeBackward(timeToChange, incrementDate) {
     if (saveData.currentDay > 0) {
       saveData.currentDay = incrementDate - 1;
       saveData.timeOfDay = "overnight";
-      saveData.currentDayOfWeek = calendarConfigs.daysOfWeek[incrementDate - 1]
+      saveData.currentDayOfWeek = calendarConfigs.daysOfWeek[incrementDate - 1];
       return {
         ...saveData,
       };

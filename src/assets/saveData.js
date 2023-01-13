@@ -108,20 +108,6 @@ export const days = [
     evening: { precipitationScore: 50, temperature: -15 }, //overcast
     overnight: { precipitationScore: 75, temperature: -20 }, //precipitation
   },
-  {
-    dayNum: 1, //need this for the weird react key stuff
-    morning: { precipitationScore: 0, temperature: -11 }, //clear
-    afternoon: { precipitationScore: 25, temperature: -6 }, //clear with clouds
-    evening: { precipitationScore: 50, temperature: -15 }, //overcast
-    overnight: { precipitationScore: 75, temperature: -20 }, //precipitation
-  },
-  {
-    dayNum: 2, //need this for the weird react key stuff
-    morning: { precipitationScore: 0, temperature: -11 }, //clear
-    afternoon: { precipitationScore: 25, temperature: -6 }, //clear with clouds
-    evening: { precipitationScore: 50, temperature: -15 }, //overcast
-    overnight: { precipitationScore: 75, temperature: -20 }, //precipitation
-  },
 ];
 
 export const saveData = {
