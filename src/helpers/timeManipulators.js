@@ -114,10 +114,10 @@ function precipitationGenerator() {
   let incrementNumber = Math.floor(difference / 4);
 
   const newPrecip = {
-    morning: oldPrecip + incrementNumber,
-    afternoon: oldPrecip + incrementNumber * 2,
-    evening: oldPrecip + incrementNumber * 3,
-    overnight: oldPrecip + incrementNumber * 4,
+    morning: Math.max((oldPrecip + incrementNumber), 0),
+    afternoon: Math.max((oldPrecip + incrementNumber * 2), 0),
+    evening: Math.max((oldPrecip + incrementNumber * 3), 0),
+    overnight: Math.max((oldPrecip + incrementNumber * 4), 0),
   };
 
   return newPrecip;
@@ -127,6 +127,7 @@ function precipitationGenerator() {
 export function dayGenerator(newDayNum) {
   const generatedTemps = tempGenerator();
   const generatedPrecip = precipitationGenerator();
+  console.log(generatedPrecip)
 
   const newDay = {
     dayNum: newDayNum,
