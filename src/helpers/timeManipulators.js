@@ -7,7 +7,7 @@ import {
 } from "../assets/saveData";
 
 function rollDice(sides, wantNegativeRange) {
-  // if wantNegativeRange range is true then -sides to sides will be returned
+  // if wantNegativeRange range is true then -sides to sides (ex: -6 to 6) will be returned
   if (wantNegativeRange) {
     return (
       Math.ceil(Math.random() * sides) * (Math.round(Math.random()) ? 1 : -1)
@@ -34,7 +34,7 @@ function tempGenerator() {
    * create a different function.
    */
 
-  // revisit this code when you want trends
+  // revisit this code when you want weather trends (cold front warm front)
   // if (days.length < 3) {
   //   counter = days.length;
   // } else {
@@ -50,6 +50,7 @@ function tempGenerator() {
   // Just return a generated day to start
   const dayAverage = seasonAverage + rollDice(4, true);
   console.log("DAY AVERAGE", dayAverage);
+  // going to need unique values per season?
   const newMorningTemp = dayAverage + rollDice(2, true) - rollDice(4, false); // morning should be colder but not as cold as overnight
   const newAfternoonTemp = dayAverage + rollDice(1, true) + rollDice(2, false); // should be warmest
   const newEveningTemp = dayAverage + rollDice(1, true) - rollDice(2, false);
@@ -60,7 +61,7 @@ function tempGenerator() {
     afternoon: newAfternoonTemp,
     evening: newEveningTemp,
     overnight: newOvernightTemp,
-  }
+  };
 
   return newTemps;
 }
@@ -72,7 +73,10 @@ export function dayGenerator(newDayNum) {
   const newDay = {
     dayNum: newDayNum,
     morning: { precipitationScore: 100, temperature: generatedTemps.morning },
-    afternoon: { precipitationScore: 20, temperature: generatedTemps.afternoon },
+    afternoon: {
+      precipitationScore: 20,
+      temperature: generatedTemps.afternoon,
+    },
     evening: { precipitationScore: 10, temperature: generatedTemps.evening },
     overnight: { precipitationScore: 4, temperature: generatedTemps.overnight },
   };
