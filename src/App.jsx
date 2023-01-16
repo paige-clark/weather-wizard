@@ -28,7 +28,9 @@ function App() {
         {/* decrement the time of day */}
         <button
           onClick={() => {
-            // dateFormatter(false, true);
+            if (currentDate.timeOfDay === "morning") {
+              dateFormatter(false, true);
+            }
             setCurrentDate((currentDate) =>
               timeBackward(currentDate.timeOfDay, currentDate.currentDay)
             );
