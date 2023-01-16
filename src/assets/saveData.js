@@ -14,9 +14,9 @@ export const calendarConfigs = {
     "TenthDay",
   ],
   months: [
-    { monthName: "Hammer", monthDays: 30, season: "winter" },
-    { monthName: "Alturiak", monthDays: 30, season: "winter" },
-    { monthName: "Ches", monthDays: 30, season: "winter" },
+    { monthName: "Hammer", monthDays: 2, season: "winter" },
+    { monthName: "Alturiak", monthDays: 2, season: "winter" },
+    { monthName: "Ches", monthDays: 1, season: "winter" },
     { monthName: "Tarsakh", monthDays: 30, season: "winter" },
     { monthName: "Mirtul", monthDays: 30, season: "spring" },
     { monthName: "Kythorn", monthDays: 30, season: "spring" },
@@ -115,6 +115,7 @@ export const days = [
 
 export const saveData = {
   currentDay: days[0].dayNum,
+  dayInMonth: 1,
   currentDayOfWeek: calendarConfigs.daysOfWeek[0],
   currentMonth: calendarConfigs.months[0],
   currentMonthNum: 0,

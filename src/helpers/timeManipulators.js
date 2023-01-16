@@ -17,6 +17,49 @@ function rollDice(sides, wantNegativeRange) {
   }
 }
 
+// checks to see if the displayed month and date number need to change b/c our currentDay
+// is stored as day in year, not day in month
+/**
+ * Function that formats the date.
+ * @param {true, false} forward
+ * @param {false, true} backward
+ */
+export function dateFormatter(forward, backward) {
+  const currentMonth = calendarConfigs.months[saveData.currentMonthNum];
+  // write function
+  // if the forward button is pressed
+  if (forward) {
+    // check to see if we need to change stuff to next month, else just increment stuff
+    if (saveData.dayInMonth + 1 > currentMonth.monthDays) {
+      // change month, reset day in month to 1, increment currentMonthNum
+      saveData.currentMonthNum += 1;
+      saveData.currentMonth = calendarConfigs.months[saveData.currentMonthNum];
+      saveData.dayInMonth = 1;
+      // console.log(saveData);
+    } else {
+      // increment the dayInMonth
+      saveData.dayInMonth += 1;
+    }
+  }
+  if (backward) {
+    // // check to see if we need to change stuff to next month, else just increment stuff
+    // if (saveData.dayInMonth - 1 <= 0 && saveData.currentDay !== 0) {
+    //   // change month, reset day in month to 1, increment currentMonthNum
+    //   saveData.currentMonthNum -= 1;
+    //   saveData.currentMonth = calendarConfigs.months[saveData.currentMonthNum];
+    //   saveData.dayInMonth = currentMonth.monthDays;
+    //   // conso[le.log(saveData);
+    // } else if (saveData.dayInMonth - 1 <= 0 && saveData.currentDay === 0) {
+    //   saveData.currentMonthNum = 0;
+    //   saveData.currentMonth = calendarConfigs.months[saveData.currentMonthNum];
+    //   saveData.dayInMonth = currentMonth.monthDays;
+    // } else if (saveData.dayInMonth - 1 > 0 && saveData.currentDay !== 0) {
+    //   // increment the dayInMonth
+    //   saveData.dayInMonth -= 1;
+    // }
+  }
+}
+
 // generate the temperatures for the day
 function tempGenerator() {
   let counter;
@@ -165,13 +208,25 @@ export function timeForward(timeToChange, incrementDate) {
   } else if (timeToChange === "overnight") {
     // Checks to see if the date can be incremented and mutates save if so
     if (saveData.currentDay < daysInYear) {
+      // console.log(saveData.dateTracker);
       saveData.currentDay = incrementDate + 1;
       saveData.currentDayOfWeek =
         calendarConfigs.daysOfWeek[
           (incrementDate + 1) % calendarConfigs.daysOfWeek.length
         ];
-      // dayGenerator(incrementDate + 1);
+
+      // saveData.currentMonth = calendarConfigs.months[currentDay]
       saveData.timeOfDay = "morning";
+
+      // if (
+      //   saveData.dateTracker + 1 >
+      //   calendarConfigs.months[saveData.currentMonthNum].monthDays
+      // ) {
+      //   saveData.currentMonthNum++;
+      //   saveData.currentMonth =
+      //     calendarConfigs.months[saveData.currentMonthNum];
+      //   saveData.dateTracker = 1;
+      // }
       return {
         ...saveData,
       };
@@ -192,6 +247,7 @@ export function timeBackward(timeToChange, incrementDate) {
       saveData.currentDay = incrementDate - 1;
       saveData.timeOfDay = "overnight";
       saveData.currentDayOfWeek = calendarConfigs.daysOfWeek[incrementDate - 1];
+
       return {
         ...saveData,
       };

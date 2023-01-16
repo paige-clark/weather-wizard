@@ -8,10 +8,12 @@ import {
   timeForward,
   timeBackward,
   dayGenerator,
+  dateFormatter,
 } from "./helpers/timeManipulators";
 
 function App() {
   const [currentDate, setCurrentDate] = useState(saveData);
+  console.log(saveData);
 
   return (
     <div className="App">
@@ -24,11 +26,12 @@ function App() {
         <ForecasterBox date={currentDate} />
         {/* increment the time of day */}
         <button
-          onClick={() =>
+          onClick={() => {
+            dateFormatter(false, true);
             setCurrentDate((currentDate) =>
               timeBackward(currentDate.timeOfDay, currentDate.currentDay)
-            )
-          }
+            );
+          }}
         >
           prev
         </button>
@@ -38,6 +41,7 @@ function App() {
           onClick={() => {
             if (currentDate.timeOfDay === "overnight") {
               dayGenerator(currentDate.currentDay + 1);
+              dateFormatter(true, false);
               setCurrentDate((currentDate) =>
                 timeForward(currentDate.timeOfDay, currentDate.currentDay)
               );
