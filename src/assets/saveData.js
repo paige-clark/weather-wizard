@@ -119,6 +119,7 @@ export const saveData = {
   currentDayOfWeek: calendarConfigs.daysOfWeek[0],
   currentMonth: calendarConfigs.months[0],
   currentMonthNum: 0,
+  currentYear: 1,
   currentSeason: calendarConfigs.months[0].season,
   timeOfDay: "morning",
   precipitationScore: 50, // 0 - 100 should be random eventually
