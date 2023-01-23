@@ -1,5 +1,5 @@
 #root {
-  max-width: 1280px;
+  width: 900px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -18,5 +18,41 @@
 
 .App {
   background-color: grey;
-  border-radius: 2em;
 }
+
+/* BEGIN ForecasterBox styling */
+.ForecasterBox {
+  /* background-color: purple; */
+  margin-left: 6em;
+  margin-right: 6em;
+  height: 20em;
+  display: flex;
+}
+
+.forecast-left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  background-color: black;
+  font-size: 7rem;
+  border-top-left-radius: 60px;
+  border-bottom-left-radius: 60px;
+  text-align: center;
+}
+
+.forecast-left-num {
+  margin-right: -4rem;
+}
+
+.forecast-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  background-color: rgba(0, 0, 0, 0.821);
+  font-size: 8rem;
+  border-top-right-radius: 60px;
+  border-bottom-right-radius: 60px;
+}
+/* END ForecasterBox styling */

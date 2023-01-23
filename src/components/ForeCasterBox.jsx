@@ -22,11 +22,15 @@ function ForecasterBox({ date }) {
   const currentWeather = days[date.currentDay][date.timeOfDay];
 
   return (
-    <div>
-      <h1>
-        {currentWeather.temperature}°{" "}
+    <div className="ForecasterBox">
+      <div className="forecast-left">
+        <div className="forecast-left-num">{currentWeather.temperature}°</div>
+      </div>
+
+      <div className="forecast-right">
+        {" "}
         {artPicker(currentWeather.precipitationScore)}
-      </h1>
+      </div>
       {/* The date is {date.currentDayOfWeek} day {date.currentDay + 1}. The month
       is {date.currentMonth.monthName}. It is currently {date.timeOfDay}. */}
     </div>
