@@ -6,7 +6,9 @@ function Wizard({}) {
 
   return (
     <div className="Wizard">
-      <Lottie className="slime" animationData={slime} loop={true} />
+      <div className="slime-box">
+        <Lottie className="slime" animationData={slime} loop={true} />
+      </div>
       <div className="wizard-bubble">Placeholder text.</div>
     </div>
   );

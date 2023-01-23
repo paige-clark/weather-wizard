@@ -31,7 +31,7 @@ function App() {
       />
       {/* box that displays temp and weather graphic */}
       <ForecasterBox date={currentDate} />
-      <div>
+      <div className="bottom-section">
         <Wizard />
         <BottomButtons />
       </div>
