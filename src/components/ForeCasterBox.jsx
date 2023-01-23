@@ -27,8 +27,8 @@ function ForecasterBox({ date }) {
         {currentWeather.temperature}°{" "}
         {artPicker(currentWeather.precipitationScore)}
       </h1>
-      The date is {date.currentDayOfWeek} day {date.currentDay + 1}. The month
-      is {date.currentMonth.monthName}. It is currently {date.timeOfDay}.
+      {/* The date is {date.currentDayOfWeek} day {date.currentDay + 1}. The month
+      is {date.currentMonth.monthName}. It is currently {date.timeOfDay}. */}
     </div>
   );
 }
