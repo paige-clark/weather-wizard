@@ -21,14 +21,12 @@
   background: grey;
 }
 
-
 /* BEGIN TimeSwitcher styling */
 .TimeSwitcher {
   display: flex;
   background-color: green;
 }
-
-.switcher-mini-calendar{
+.switcher-mini-calendar {
   display: flex;
   flex-direction: column;
   background-color: pink;
@@ -36,10 +34,15 @@
   height: 5em;
   color: black;
   border-radius: 20px;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
-.switcher-mini-calendar-month{
+.switcher-mini-calendar-month {
   background-color: red;
+  padding-top: 0.25rem;
+}
+.switcher-mini-calendar-date {
+  font-size: 2rem;
+  margin-top: 0.70rem;
 }
 /* END TimeSwitcher styling */
 

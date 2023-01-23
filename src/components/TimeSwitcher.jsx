@@ -7,14 +7,24 @@ import {
 } from "../helpers/timeManipulators";
 
 function TimeSwitcher({ date, currentDate, setCurrentDate }) {
-  // const currentWeather = days[date.currentDay][date.timeOfDay];
+  function monthNameFormatter(month) {
+    // takes in a month, spits it out as three character if longer than
+    // four characters, otherwise just give them month name.
+    if (month.length > 4) {
+      return `${month.slice(0, 3)}.`;
+    } else {
+      return month;
+    }
+  }
 
   return (
     <div className="TimeSwitcher">
       {/* decrement the time of day */}
       <div className="switcher-mini-calendar">
-        <div className="switcher-mini-calendar-month">{saveData.currentMonth.monthName}</div>
-        {saveData.dayInMonth}
+        <div className="switcher-mini-calendar-month">
+          {monthNameFormatter(saveData.currentMonth.monthName)}
+        </div>
+        <div className="switcher-mini-calendar-date">{saveData.dayInMonth}</div>
       </div>
       <div>
         <div>{date.currentDayOfWeek}</div>
