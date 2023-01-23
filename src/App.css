@@ -17,8 +17,32 @@
 }
 
 .App {
-  background-color: grey;
+  background: linear-gradient(180deg, #779eff 19.29%, #befafc 100%);
+  background: grey;
 }
+
+
+/* BEGIN TimeSwitcher styling */
+.TimeSwitcher {
+  display: flex;
+  background-color: green;
+}
+
+.switcher-mini-calendar{
+  display: flex;
+  flex-direction: column;
+  background-color: pink;
+  width: 5em;
+  height: 5em;
+  color: black;
+  border-radius: 20px;
+  /* overflow: hidden; */
+}
+.switcher-mini-calendar-month{
+  background-color: red;
+}
+/* END TimeSwitcher styling */
+
 
 /* BEGIN ForecasterBox styling */
 .ForecasterBox {
@@ -50,7 +74,7 @@
   align-items: center;
   justify-content: center;
   width: 50%;
-  background-color: rgba(0, 0, 0, 0.821);
+  background: linear-gradient(180deg, #000000ed 0%, #000000c9 100%);
   font-size: 8rem;
   border-top-right-radius: 60px;
   border-bottom-right-radius: 60px;
