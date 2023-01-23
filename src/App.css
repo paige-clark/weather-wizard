@@ -15,3 +15,8 @@
 .read-the-docs {
   color: #888;
 }
+
+.App {
+  background-color: grey;
+  border-radius: 2em;
+}

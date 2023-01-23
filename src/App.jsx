@@ -18,13 +18,10 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Weather Wizard</h1>
       <div className="card">
-        <div>
+        {/* <div>
           <Lottie className="logo" animationData={slime} loop={true} />
-        </div>
-        {/* box that displays temp and weather graphic */}
-        <ForecasterBox date={currentDate} />
+        </div> */}
         {/* decrement the time of day */}
         <button
           onClick={() => {
@@ -66,6 +63,8 @@ function App() {
           next
         </button>
       </div>
+      {/* box that displays temp and weather graphic */}
+      <ForecasterBox date={currentDate} />
     </div>
   );
 }
