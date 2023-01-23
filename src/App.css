@@ -18,34 +18,56 @@
 
 .App {
   background: linear-gradient(180deg, #779eff 19.29%, #befafc 100%);
-  background: grey;
+  background: rgb(110, 110, 110);
 }
 
 /* BEGIN TimeSwitcher styling */
 .TimeSwitcher {
   display: flex;
-  background-color: green;
+  padding: 0.5rem;
 }
 .switcher-mini-calendar {
   display: flex;
   flex-direction: column;
-  background-color: pink;
-  width: 5em;
-  height: 5em;
+  background-color: rgb(209, 209, 209);
+  width: 5.25em;
+  height: 5.25em;
   color: black;
-  border-radius: 20px;
+  border-radius: 17px;
   overflow: hidden;
 }
 .switcher-mini-calendar-month {
-  background-color: red;
+  background-color: rgb(149, 149, 149);
   padding-top: 0.25rem;
 }
 .switcher-mini-calendar-date {
   font-size: 2rem;
-  margin-top: 0.70rem;
+  margin-top: 0.7rem;
+}
+.switcher-right-side {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: 0.25em;
+}
+.switcher-weekday {
+  font-size: 1.75rem;
+  align-self: flex-start;
+  margin-bottom: 0.5rem;
+  margin-left: 0.25rem;
+}
+.switcher-time-toggler{
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+  background-color: rgb(180, 180, 180);
+  color: black;
+  border-radius: 20px;
+  width: 10rem;
+  align-items: center;
+  height: 2rem;
 }
 /* END TimeSwitcher styling */
-
 
 /* BEGIN ForecasterBox styling */
 .ForecasterBox {

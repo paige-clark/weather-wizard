@@ -11,7 +11,7 @@ function TimeSwitcher({ date, currentDate, setCurrentDate }) {
     // takes in a month, spits it out as three character if longer than
     // four characters, otherwise just give them month name.
     if (month.length > 4) {
-      return `${month.slice(0, 3)}.`;
+      return `${month.slice(0, 3)}`;
     } else {
       return month;
     }
@@ -26,9 +26,9 @@ function TimeSwitcher({ date, currentDate, setCurrentDate }) {
         </div>
         <div className="switcher-mini-calendar-date">{saveData.dayInMonth}</div>
       </div>
-      <div>
-        <div>{date.currentDayOfWeek}</div>
-        <div>
+      <div className="switcher-right-side">
+        <div className="switcher-weekday">{date.currentDayOfWeek}</div>
+        <div className="switcher-time-toggler">
           <button
             onClick={() => {
               if (currentDate.timeOfDay === "morning") {
