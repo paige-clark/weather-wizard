@@ -5,6 +5,7 @@ import { calendarConfigs, days, saveData, seasons } from "./assets/saveData";
 import slime from "./assets/slime-test.json";
 import ForecasterBox from "./components/ForeCasterBox";
 import TimeSwitcher from "./components/TimeSwitcher";
+import BottomButtons from "./components/BottomButtons";
 import {
   timeForward,
   timeBackward,
@@ -19,14 +20,17 @@ function App() {
 
   return (
     <div className="App">
-      <div className="card">
         {/* <div>
           <Lottie className="logo" animationData={slime} loop={true} />
         </div> */}
-        <TimeSwitcher date={currentDate} currentDate={currentDate} setCurrentDate={setCurrentDate} />
-      </div>
+      <TimeSwitcher
+        date={currentDate}
+        currentDate={currentDate}
+        setCurrentDate={setCurrentDate}
+      />
       {/* box that displays temp and weather graphic */}
       <ForecasterBox date={currentDate} />
+      <BottomButtons />
     </div>
   );
 }
