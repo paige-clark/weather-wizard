@@ -4,6 +4,7 @@ import "./App.css";
 import { calendarConfigs, days, saveData, seasons } from "./assets/saveData";
 import slime from "./assets/slime-test.json";
 import ForecasterBox from "./components/ForeCasterBox";
+import TimeSwitcher from "./components/TimeSwitcher";
 import {
   timeForward,
   timeBackward,
@@ -22,6 +23,7 @@ function App() {
         {/* <div>
           <Lottie className="logo" animationData={slime} loop={true} />
         </div> */}
+        <TimeSwitcher date={currentDate} />
         {/* decrement the time of day */}
         <button
           onClick={() => {
