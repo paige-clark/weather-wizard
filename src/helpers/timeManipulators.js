@@ -242,7 +242,11 @@ export function timeBackward(timeToChange, incrementDate) {
     if (saveData.currentDay > 0) {
       saveData.currentDay = incrementDate - 1;
       saveData.timeOfDay = "overnight";
-      saveData.currentDayOfWeek = calendarConfigs.daysOfWeek[incrementDate - 1];
+      saveData.currentDayOfWeek =
+        calendarConfigs.daysOfWeek[
+          (incrementDate - 1) % calendarConfigs.daysOfWeek.length
+        ];
+      // saveData.currentDayOfWeek = calendarConfigs.daysOfWeek[incrementDate - 1];
 
       return {
         ...saveData,
