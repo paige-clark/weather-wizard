@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { days, saveData } from "../assets/saveData";
 
 // will need to take in to account stuff like time of day and season
@@ -21,10 +22,40 @@ function artPicker(score) {
 function ForecasterBox({ date }) {
   const currentWeather = days[date.currentDay][date.timeOfDay];
 
+  console.log(`CURRENT WEATHER`, currentWeather);
+
+  // function animateValue(obj, start, end, duration) {
+  //   let startTimestamp = 0;
+  //   const step = (timestamp) => {
+  //     if (!startTimestamp) startTimestamp = timestamp;
+  //     const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+  //     obj.innerHTML = Math.floor(progress * (end - start) + start);
+  //     if (progress < 1) {
+  //       window.requestAnimationFrame(step);
+  //     }
+  //   };
+  //   window.requestAnimationFrame(step);
+  // }
+
+  // const obj = document.getElementById("value");
+
   return (
     <div className="ForecasterBox">
       <div className="forecast-left">
-        <div className="forecast-left-num">{currentWeather.temperature}°</div>
+        <div>
+          <style>
+            {`
+              @property --num {
+                syntax: '<integer>';
+                initial-value: ${currentWeather.temperature};
+                inherits: false;
+              }
+            `}
+          </style>
+          <div className="forecast-left-num"></div>
+        </div>
+        <div>°</div>
+        {/* <div className="forecast-left-num">{currentWeather.temperature}°</div> */}
       </div>
 
       <div className="forecast-right">

@@ -89,11 +89,19 @@
   border-top-left-radius: 60px;
   border-bottom-left-radius: 60px;
   text-align: center;
+  color: white;
 }
 
 .forecast-left-num {
-  margin-right: -4rem;
+  margin-left: 5rem;
+  transition: --num 1s;
+  counter-reset: num var(--num);
 }
+
+.forecast-left-num::after {
+  content: counter(num);
+}
+
 
 .forecast-right {
   display: flex;
@@ -146,7 +154,6 @@
   color: black;
 }
 
-
 .bottom-section {
   display: flex;
   padding-top: 0em;
@@ -154,11 +161,11 @@
   /* background-color: orange; */
 }
 
-.BottomButtons{
+.BottomButtons {
   display: flex;
   justify-content: space-between;
   width: 6em;
   height: 2rem;
   background-color: blue;
-  align-self:flex-end;
+  align-self: flex-end;
 }
