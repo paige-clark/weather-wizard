@@ -7,35 +7,36 @@ import ForecasterBox from "./components/ForeCasterBox";
 import TimeSwitcher from "./components/TimeSwitcher";
 import BottomButtons from "./components/BottomButtons";
 import Wizard from "./components/Wizard";
+
 import {
   timeForward,
   timeBackward,
   dayGenerator,
   dateFormatter,
 } from "./helpers/timeManipulators";
+import Simple from "./components/RiveTest";
 
 function App() {
   const [currentDate, setCurrentDate] = useState(saveData);
-  // console.log(saveData);
-  // console.log(days);
 
   return (
-    <div className="App">
-      {/* <div>
-          <Lottie className="logo" animationData={slime} loop={true} />
-        </div> */}
-      <TimeSwitcher
+    <>
+      <div className="App">
+        {/* <TimeSwitcher
         date={currentDate}
         currentDate={currentDate}
         setCurrentDate={setCurrentDate}
       />
-      {/* box that displays temp and weather graphic */}
       <ForecasterBox date={currentDate} />
       <div className="bottom-section">
         <Wizard />
         <BottomButtons />
+      </div> */}
+        <div>
+          <Simple />
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

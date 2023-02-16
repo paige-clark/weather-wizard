@@ -1,5 +1,4 @@
 #root {
-  width: 900px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -168,4 +167,21 @@
   height: 2rem;
   background-color: blue;
   align-self: flex-end;
+}
+
+.base-canvas-size{
+  width: 1080px;
+}
+
+.RiveApp {
+  font-family: sans-serif;
+  text-align: center;
+  background-color: black;
+  height: 100vh;
+}
+
+.full-screen {
+
+  height: 40rem;
+  /* width: 300vh; */
 }
