@@ -1,0 +1,258 @@
+App.css
+#root {
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+.logo {
+  height: 20em;
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.App {
+  background: linear-gradient(180deg, #779eff 19.29%, #befafc 100%);
+  background: rgb(110, 110, 110);
+  overflow: hidden;
+}
+
+/* BEGIN TimeSwitcher styling */
+.TimeSwitcher {
+  display: flex;
+  padding: 0.5rem;
+}
+.switcher-mini-calendar {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(209, 209, 209);
+  width: 5.25em;
+  height: 5.25em;
+  color: black;
+  border-radius: 17px;
+  overflow: hidden;
+}
+.switcher-mini-calendar-month {
+  background-color: rgb(149, 149, 149);
+  padding-top: 0.25rem;
+}
+.switcher-mini-calendar-date {
+  font-size: 2rem;
+  margin-top: 0.7rem;
+}
+.switcher-right-side {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: 0.25em;
+}
+.switcher-weekday {
+  font-size: 1.75rem;
+  align-self: flex-start;
+  margin-bottom: 0.5rem;
+  margin-left: 0.25rem;
+}
+.switcher-time-toggler {
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+  background-color: rgb(180, 180, 180);
+  color: black;
+  border-radius: 20px;
+  width: 10rem;
+  align-items: center;
+  height: 2rem;
+}
+/* END TimeSwitcher styling */
+
+/* BEGIN ForecasterBox styling */
+.ForecasterBox {
+  /* background-color: purple; */
+  margin-left: 6em;
+  margin-right: 6em;
+  height: 20em;
+  display: flex;
+}
+
+.forecast-left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  background-color: black;
+  font-size: 7rem;
+  border-top-left-radius: 60px;
+  border-bottom-left-radius: 60px;
+  text-align: center;
+  color: white;
+}
+
+.forecast-left-num {
+  margin-left: 5rem;
+  transition: --num 1s;
+  counter-reset: num var(--num);
+}
+
+.forecast-left-num::after {
+  content: counter(num);
+}
+
+
+.forecast-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  background: linear-gradient(180deg, #000000ed 0%, #000000c9 100%);
+  font-size: 8rem;
+  border-top-right-radius: 60px;
+  border-bottom-right-radius: 60px;
+}
+/* END ForecasterBox styling */
+
+/* START Wizard styling */
+.Wizard {
+  /* background-color: green; */
+  display: flex;
+  position: relative;
+  left: 0rem;
+  width: 50rem;
+  height: 7.5rem;
+  top: 0rem;
+}
+
+.slime-box {
+  /* background-color: lavender; */
+  overflow: hidden;
+  width: 20em;
+  position: relative;
+  top: -5rem;
+  height: 15rem;
+}
+.slime {
+  z-index: 2;
+  position: relative;
+  top: -6rem;
+  left: -4rem;
+  width: 30rem;
+}
+
+.wizard-bubble {
+  z-index: 1;
+  top: -2rem;
+  border-radius: 60px;
+  width: 30rem;
+  height: 5rem;
+  position: relative;
+  left: -4rem;
+  background-color: white;
+  color: black;
+}
+
+.bottom-section {
+  display: flex;
+  padding-top: 0em;
+  justify-content: space-between;
+  /* background-color: orange; */
+}
+
+.BottomButtons {
+  display: flex;
+  justify-content: space-between;
+  width: 6em;
+  height: 2rem;
+  background-color: blue;
+  align-self: flex-end;
+}
+
+.base-canvas-size{
+  width: 1080px;
+}
+
+.RiveApp {
+  font-family: sans-serif;
+  text-align: center;
+  background-color: black;
+  height: 100vh;
+}
+
+.full-screen {
+  background-color: green;
+  height: 40rem;
+  width: 40rem;
+  /* width: 300vh; */
+}
+
+
+index.css
+:root {
+  /* FOT-Seurat is the nintendo font */
+  font-family: FOT-Seurat ProN, Helvetica, Arial, sans-serif;
+  /* font-family: Inter, Avenir, Helvetica, Arial, sans-serif; */
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  /* padding: 0.6em 1.2em; */
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}

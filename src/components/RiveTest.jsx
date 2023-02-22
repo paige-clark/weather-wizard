@@ -9,7 +9,7 @@ import {
   Alignment,
 } from "@rive-app/react-canvas";
 
-export default function Simple() {
+export default function WizardII() {
   const { rive, RiveComponent } = useRive({
     src: "wizardv2.riv",
     autoplay: true,
@@ -21,7 +21,7 @@ export default function Simple() {
     artboard: "Wizard_III"
   });
 
-  console.log(rive)
+  // console.log(rive)
 
   const [maxWidth, setMaxWidth] = useState();
   const [maxHeight, setMaxHeight] = useState();

@@ -7,6 +7,7 @@ import ForecasterBox from "./components/ForeCasterBox";
 import TimeSwitcher from "./components/TimeSwitcher";
 import BottomButtons from "./components/BottomButtons";
 import Wizard from "./components/Wizard";
+import WizardTxt from "./components/WizardTxt";
 
 import {
   timeForward,
@@ -14,7 +15,7 @@ import {
   dayGenerator,
   dateFormatter,
 } from "./helpers/timeManipulators";
-import Simple from "./components/RiveTest";
+import WizardII from "./components/RiveTest";
 
 function App() {
   const [currentDate, setCurrentDate] = useState(saveData);
@@ -22,18 +23,21 @@ function App() {
   return (
     <>
       <div className="App">
-        {/* <TimeSwitcher
-        date={currentDate}
-        currentDate={currentDate}
-        setCurrentDate={setCurrentDate}
-      />
-      <ForecasterBox date={currentDate} />
-      <div className="bottom-section">
-        <Wizard />
-        <BottomButtons />
-      </div> */}
         <div>
-          <Simple />
+          <WizardII />
+          <WizardTxt />
+        </div>
+        <div>
+          <TimeSwitcher
+            date={currentDate}
+            currentDate={currentDate}
+            setCurrentDate={setCurrentDate}
+          />
+          <ForecasterBox date={currentDate} />
+          <div className="bottom-section">
+            {/* <Wizard /> */}
+            <BottomButtons />
+          </div>
         </div>
       </div>
     </>

@@ -1,95 +1,17 @@
 #root {
   margin: 0 auto;
-  padding: 2rem;
+  /* padding: 2rem; */
   text-align: center;
-}
-.logo {
-  height: 20em;
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
 
 .App {
-  background: linear-gradient(180deg, #779eff 19.29%, #befafc 100%);
-  background: rgb(110, 110, 110);
-  overflow: hidden;
+  /* max-width: 30rem; */
+  background-color: purple;
+  display: flex;
 }
 
-/* BEGIN TimeSwitcher styling */
-.TimeSwitcher {
-  display: flex;
-  padding: 0.5rem;
-}
-.switcher-mini-calendar {
-  display: flex;
-  flex-direction: column;
-  background-color: rgb(209, 209, 209);
-  width: 5.25em;
-  height: 5.25em;
-  color: black;
-  border-radius: 17px;
-  overflow: hidden;
-}
-.switcher-mini-calendar-month {
-  background-color: rgb(149, 149, 149);
-  padding-top: 0.25rem;
-}
-.switcher-mini-calendar-date {
-  font-size: 2rem;
-  margin-top: 0.7rem;
-}
-.switcher-right-side {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  margin-left: 0.25em;
-}
-.switcher-weekday {
-  font-size: 1.75rem;
-  align-self: flex-start;
-  margin-bottom: 0.5rem;
-  margin-left: 0.25rem;
-}
-.switcher-time-toggler {
-  display: flex;
-  justify-content: space-between;
-  overflow: hidden;
-  background-color: rgb(180, 180, 180);
-  color: black;
-  border-radius: 20px;
-  width: 10rem;
-  align-items: center;
-  height: 2rem;
-}
-/* END TimeSwitcher styling */
 
 /* BEGIN ForecasterBox styling */
-.ForecasterBox {
-  /* background-color: purple; */
-  margin-left: 6em;
-  margin-right: 6em;
-  height: 20em;
-  display: flex;
-}
-
-.forecast-left {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50%;
-  background-color: black;
-  font-size: 7rem;
-  border-top-left-radius: 60px;
-  border-bottom-left-radius: 60px;
-  text-align: center;
-  color: white;
-}
 
 .forecast-left-num {
   margin-left: 5rem;
@@ -102,86 +24,23 @@
 }
 
 
-.forecast-right {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50%;
-  background: linear-gradient(180deg, #000000ed 0%, #000000c9 100%);
-  font-size: 8rem;
-  border-top-right-radius: 60px;
-  border-bottom-right-radius: 60px;
-}
 /* END ForecasterBox styling */
 
-/* START Wizard styling */
-.Wizard {
-  /* background-color: green; */
-  display: flex;
-  position: relative;
-  left: 0rem;
-  width: 50rem;
-  height: 7.5rem;
-  top: 0rem;
-}
 
-.slime-box {
-  /* background-color: lavender; */
-  overflow: hidden;
-  width: 20em;
-  position: relative;
-  top: -5rem;
-  height: 15rem;
-}
-.slime {
-  z-index: 2;
-  position: relative;
-  top: -6rem;
-  left: -4rem;
-  width: 30rem;
-}
-
-.wizard-bubble {
-  z-index: 1;
-  top: -2rem;
-  border-radius: 60px;
-  width: 30rem;
-  height: 5rem;
-  position: relative;
-  left: -4rem;
-  background-color: white;
-  color: black;
-}
-
-.bottom-section {
-  display: flex;
-  padding-top: 0em;
-  justify-content: space-between;
-  /* background-color: orange; */
-}
-
-.BottomButtons {
-  display: flex;
-  justify-content: space-between;
-  width: 6em;
-  height: 2rem;
-  background-color: blue;
-  align-self: flex-end;
-}
-
-.base-canvas-size{
+/* .base-canvas-size{
   width: 1080px;
-}
+} */
 
 .RiveApp {
   font-family: sans-serif;
   text-align: center;
   background-color: black;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 .full-screen {
-
-  height: 40rem;
+  background-color: green;
+  height: 40vh;
+  width: 40vw;
   /* width: 300vh; */
 }
