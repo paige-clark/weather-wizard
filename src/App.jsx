@@ -23,20 +23,19 @@ function App() {
   return (
     <>
       <div className="App">
-        <div>
-          <WizardII />
-          <WizardTxt />
-        </div>
-        <div>
-          <TimeSwitcher
-            date={currentDate}
-            currentDate={currentDate}
-            setCurrentDate={setCurrentDate}
-          />
-          <ForecasterBox date={currentDate} />
-          <div className="bottom-section">
-            {/* <Wizard /> */}
+        <div className="main-box">
+          <div className="left-section">
+            <WizardII />
+            <WizardTxt />
             <BottomButtons />
+          </div>
+          <div className="right-section">
+            <TimeSwitcher
+              date={currentDate}
+              currentDate={currentDate}
+              setCurrentDate={setCurrentDate}
+            />
+            <ForecasterBox date={currentDate} />
           </div>
         </div>
       </div>

@@ -18,7 +18,7 @@ export default function WizardII() {
       fit: Fit.Contain,
       alignment: Alignment.Center,
     }),
-    artboard: "Wizard_III"
+    artboard: "Wizard_III",
   });
 
   // console.log(rive)
@@ -33,7 +33,7 @@ export default function WizardII() {
     const body = document.querySelector("body");
     if (body) {
       const bodyRect = body.getBoundingClientRect();
-      setMaxWidth(bodyRect.right);
+      setMaxWidth(bodyRect.right); // the number here is to compensate for the wiz looking slightly too right
       setMaxHeight(bodyRect.bottom);
     }
   }, []);
