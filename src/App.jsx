@@ -21,25 +21,23 @@ function App() {
   const [currentDate, setCurrentDate] = useState(saveData);
 
   return (
-    <>
-      <div className="App">
-        <div className="main-box">
-          <div className="left-section">
-            <WizardII />
-            <WizardTxt />
-            <BottomButtons />
-          </div>
-          <div className="right-section">
-            <TimeSwitcher
-              date={currentDate}
-              currentDate={currentDate}
-              setCurrentDate={setCurrentDate}
-            />
-            <ForecasterBox date={currentDate} />
-          </div>
-        </div>
+    <div className="App">
+      <div className="wizard">
+        <WizardII />
       </div>
-    </>
+      <div className="speech-section">
+        <WizardTxt />
+        <BottomButtons />
+      </div>
+      <div className="weather-section">
+        <TimeSwitcher
+          date={currentDate}
+          currentDate={currentDate}
+          setCurrentDate={setCurrentDate}
+        />
+        <ForecasterBox date={currentDate} />
+      </div>
+    </div>
   );
 }
 
