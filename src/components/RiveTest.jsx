@@ -15,7 +15,7 @@ export default function WizardII() {
     autoplay: true,
     stateMachines: "statemachine",
     layout: new Layout({
-      fit: Fit.Contain,
+      fit: Fit.Fill,
       alignment: Alignment.Center,
     }),
     artboard: "Wizard_III",
@@ -52,8 +52,8 @@ export default function WizardII() {
   }, [xAxisInput, yAxisInput, maxHeight, maxWidth]);
 
   return (
-    <div className="RiveApp">
+    <>
       <RiveComponent className="full-screen" />
-    </div>
+    </>
   );
 }

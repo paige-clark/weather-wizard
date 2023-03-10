@@ -30,12 +30,14 @@ function App() {
         <BottomButtons />
       </div>
       <div className="weather-section">
-        <TimeSwitcher
-          date={currentDate}
-          currentDate={currentDate}
-          setCurrentDate={setCurrentDate}
-        />
-        <ForecasterBox date={currentDate} />
+        <div className="weather-card">
+          <TimeSwitcher
+            date={currentDate}
+            currentDate={currentDate}
+            setCurrentDate={setCurrentDate}
+          />
+          <ForecasterBox date={currentDate} />
+        </div>
       </div>
     </div>
   );
