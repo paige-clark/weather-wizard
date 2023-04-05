@@ -39,6 +39,22 @@ export default function WizardII() {
   }, []);
 
   useEffect(() => {
+    const body = document.querySelector("body");
+    const handleResize = () => {
+      if (body) {
+        const bodyRect = body.getBoundingClientRect();
+        setMaxWidth(bodyRect.right); // the number here is to compensate for the wiz looking slightly too right
+        setMaxHeight(bodyRect.bottom);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
     const update = (e) => {
       if (maxWidth && maxHeight && yAxisInput && xAxisInput) {
         xAxisInput.value = (e.x / maxWidth) * 100;
