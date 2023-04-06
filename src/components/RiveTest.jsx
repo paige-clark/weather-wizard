@@ -36,10 +36,7 @@ export default function WizardII() {
       setMaxWidth(bodyRect.right); // the number here is to compensate for the wiz looking slightly too right
       setMaxHeight(bodyRect.bottom);
     }
-  }, []);
 
-  useEffect(() => {
-    const body = document.querySelector("body");
     const handleResize = () => {
       if (body) {
         const bodyRect = body.getBoundingClientRect();
@@ -53,6 +50,22 @@ export default function WizardII() {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  // useEffect(() => {
+  //   const body = document.querySelector("body");
+  //   const handleResize = () => {
+  //     if (body) {
+  //       const bodyRect = body.getBoundingClientRect();
+  //       setMaxWidth(bodyRect.right); // the number here is to compensate for the wiz looking slightly too right
+  //       setMaxHeight(bodyRect.bottom);
+  //     }
+  //   };
+  //   window.addEventListener("resize", handleResize);
+
+  //   return () => {
+  //     window.removeEventListener("resize", handleResize);
+  //   };
+  // }, []);
 
   useEffect(() => {
     const update = (e) => {
