@@ -38,8 +38,6 @@ function App() {
             currentDate={currentDate}
             setCurrentDate={setCurrentDate}
           />
-
-          {/* <WeatherLotties /> */}
         </div>
       </div>
     </div>

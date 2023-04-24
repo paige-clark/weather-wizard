@@ -91,7 +91,7 @@ body {
   /* text-wrap: balance; */
 }
 
-.weather-section {
+/* .weather-section {
   grid-area: three;
   background-color: lightgrey;
   display: flex;
@@ -100,16 +100,16 @@ body {
   padding: 1.25rem;
   margin: 0.5rem;
   border-radius: 0.75rem;
-}
+} */
 
-.weather-card {
+/* .weather-card {
   background-color: grey;
   width: 100%;
   height: 100%;
   border-radius: 0.5rem;
   display: flex;
   justify-content: center;
-}
+} */
 
 /* BEGIN ForecasterBox styling */
 
@@ -124,3 +124,28 @@ body {
 }
 
 /* END ForecasterBox styling */
+
+/* BEGIN TimeSwitcher styling */
+.TimeSwitcher {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: blue;
+}
+
+.time-of-day {
+  font-size: 2rem;
+  text-align: center;
+  width: 11rem;
+  padding: 1.5rem;
+  border: solid red;
+  border-radius: 2rem;
+  background-color: orange;
+}
+.hand-button {
+  background-color: pink;
+  cursor: pointer;
+  width: 7rem;
+  margin: 1rem;
+}
+/* END TimeSwitcher styling */
