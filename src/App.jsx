@@ -28,17 +28,18 @@ function App() {
       </div>
       <div className="speech-section">
         <WizardTxt />
-        <BottomButtons />
+        {/* <BottomButtons /> */}
       </div>
       <div className="weather-section">
         <div className="weather-card">
+          <ForecasterBox date={currentDate} />
           <TimeSwitcher
             date={currentDate}
             currentDate={currentDate}
             setCurrentDate={setCurrentDate}
           />
-          <ForecasterBox date={currentDate} />
-          <WeatherLotties />
+
+          {/* <WeatherLotties /> */}
         </div>
       </div>
     </div>

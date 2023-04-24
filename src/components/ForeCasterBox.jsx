@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { days, saveData } from "../assets/saveData";
+import WeatherLotties from "./WeatherLotties";
 
 // will need to take in to account stuff like time of day and season
 function artPicker(score) {
@@ -60,6 +61,7 @@ function ForecasterBox({ date }) {
 
       <div className="forecast-right">
         {" "}
+        <WeatherLotties />
         {artPicker(currentWeather.precipitationScore)}
       </div>
       {/* The date is {date.currentDayOfWeek} day {date.currentDay + 1}. The month

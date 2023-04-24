@@ -3,7 +3,9 @@ function WizardTxt({}) {
 
   return (
     <div>
-      <div className="wizard-bubble">Placeholder text.</div>
+      <div className="wizard-bubble">
+        This is the wizard speaking. It's hot outside. Ahhh.
+      </div>
     </div>
   );
 }

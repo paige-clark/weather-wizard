@@ -15,7 +15,7 @@ export default function WizardII() {
     autoplay: true,
     stateMachines: "statemachine",
     layout: new Layout({
-      fit: Fit.Fill,
+      fit: Fit.FitWidth,
       alignment: Alignment.Center,
     }),
     artboard: "Wizard_III",
@@ -31,6 +31,10 @@ export default function WizardII() {
 
   useEffect(() => {
     const body = document.querySelector("body");
+    // maybe I can use this to center the mouse on the wizard
+    const wizardBox = document.querySelector("#wizard-selector");
+    console.log(wizardBox.getBoundingClientRect());
+
     if (body) {
       const bodyRect = body.getBoundingClientRect();
       setMaxWidth(bodyRect.right); // the number here is to compensate for the wiz looking slightly too right
@@ -81,8 +85,8 @@ export default function WizardII() {
   }, [xAxisInput, yAxisInput, maxHeight, maxWidth]);
 
   return (
-    <>
+    <div className="wizard-box" id="wizard-selector">
       <RiveComponent className="full-screen" />
-    </>
+    </div>
   );
 }
