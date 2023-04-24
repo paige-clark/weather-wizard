@@ -42,8 +42,14 @@ function ForecasterBox({ date }) {
 
   return (
     <div className="ForecasterBox">
-      <div className="forecast-left">
-        <div>
+      <div className="forecaster-date">
+        {saveData.currentMonth.monthName} {saveData.dayInMonth}
+      </div>
+      <div className="weather-box">
+        <div className="weather-lottie">
+          <WeatherLotties />
+        </div>
+        <div className="forecast-temp">
           <style>
             {`
               @property --num {
@@ -54,15 +60,10 @@ function ForecasterBox({ date }) {
             `}
           </style>
           <div className="forecast-left-num"></div>
-        </div>
-        <div>°</div>
-        {/* <div className="forecast-left-num">{currentWeather.temperature}°</div> */}
-      </div>
 
-      <div className="forecast-right">
-        {" "}
-        <WeatherLotties />
-        {artPicker(currentWeather.precipitationScore)}
+          <div className="temp-degree">°</div>
+          {/* <div className="forecast-left-num">{currentWeather.temperature}°</div> */}
+        </div>
       </div>
       {/* The date is {date.currentDayOfWeek} day {date.currentDay + 1}. The month
       is {date.currentMonth.monthName}. It is currently {date.timeOfDay}. */}
