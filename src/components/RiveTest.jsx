@@ -15,8 +15,8 @@ export default function WizardII() {
     autoplay: true,
     stateMachines: "statemachine",
     layout: new Layout({
-      fit: Fit.FitWidth,
-      alignment: Alignment.Center,
+      // fit: Fit.FitWidth,
+      // alignment: Alignment.Center,
     }),
     artboard: "Wizard_III",
   });

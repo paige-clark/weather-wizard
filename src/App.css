@@ -11,14 +11,14 @@ body {
   place-content: center;
   min-height: 100vh;
   /* min-width: 100vw; */
-  background: green;
+  background: black;
   /* width: 100vw; */
 }
 
 .App {
   /* background-color: purple; */
   display: grid;
-  overflow: hidden;
+  /* overflow: hidden; */
   border-radius: 1.25rem;
   /* gap: 1.5rem; */
   grid-auto-columns: 20rem 37.5em;
@@ -27,6 +27,9 @@ body {
     "one three"
     "two three";
   background-color: black;
+  border: solid var(--magenta);
+  outline: solid var(--magenta);
+  outline-offset: 0.5rem;
   /* max-width: 75rem; */
   /* max-width: 12rem; */
   /* width: 100vw;
@@ -42,7 +45,6 @@ body {
 .wizard {
   grid-area: one;
   /* aspect-ratio: 1 / 1; */
-  background-color: black;
   /* display: grid;
   place-content: end center; */
   /* width: 25vw;
@@ -52,14 +54,17 @@ body {
   /* height: 22rem; */
   /* height: 100%; */
   /* height: 100%; */
-  height: 100%;
+  height: 20rem;
+
   /* background-color: orange; */
   /* border-bottom: medium dashed blue; */
 }
 
 .wizard-box {
   /* background-color: pink; */
-  height: 100%;
+  height: 140%;
+  width: 140%;
+
   /* height: 100%; */
   /* background-color: pink; */
   /* background-color: pink; */
@@ -67,6 +72,9 @@ body {
 
 .full-screen {
   height: 100%;
+  position: relative;
+  left: -3.5rem;
+  bottom: -0.25rem;
   /* height: 100%; */
   /* width: 100%; */
   /* height: 35rem; */
@@ -83,7 +91,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: -0rem;
   padding: 1rem;
+  color: white;
   /* overflow-wrap: break-word; */
   /* word-break: break-all; */
   /* hyphens: auto; */
@@ -95,7 +105,7 @@ body {
   grid-area: three;
   background-color: lightgrey;
   padding: 1.25rem;
-  margin: 0.5rem;
+  margin: 0.55rem;
   border-radius: 0.75rem;
   /* display: flex;
   align-items: center;
@@ -107,9 +117,9 @@ body {
 
 .weather-card {
   background-color: black;
-  border-radius: 0.75rem;
+  border-radius: 0.5rem;
   height: 100%;
-  outline: solid green;
+  outline: solid var(--magenta);
   outline-offset: -0.75rem;
 
   /* width: 100%;
@@ -126,8 +136,9 @@ body {
   flex-direction: column;
   align-items: center;
 }
+
 .weather-box {
-  border: solid green;
+  border: solid var(--magenta);
   border-radius: 2rem;
   width: 80%;
   display: flex;
@@ -139,23 +150,27 @@ body {
   width: 20rem;
   /* margin-bottom: -2rem; */
 }
+
 .forecast-temp {
   margin-top: -2rem;
   margin-bottom: -2rem;
   display: flex;
 }
+
 .temp-degree {
   font-size: 8rem;
   position: relative;
   bottom: 1rem;
-  left: 0.1rem;
+  left: -0.25rem;
   font-family: "Raleway", sans-serif;
+  color: white;
 }
 
 .forecast-left-num {
   font-size: 7rem;
   transition: --num 1s;
   counter-reset: num var(--num);
+  color: white;
 }
 
 .forecast-left-num::after {
@@ -164,6 +179,7 @@ body {
 
 .forecaster-date {
   position: relative;
+  color: var(--green);
   top: 1.5rem;
   background-color: black;
   font-size: 2rem;
@@ -184,10 +200,11 @@ body {
 
 .time-of-day {
   font-size: 2rem;
+  color: var(--green);
   text-align: center;
   width: 11rem;
   padding: 1.5rem;
-  border: solid red;
+  border: solid var(--magenta);
   border-radius: 2rem;
 }
 .hand-button {
